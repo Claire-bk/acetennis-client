@@ -4,11 +4,7 @@
   "description": "",
   "homepage": "https://claire-bk.github.io/acetennis-client",
   "scripts": {
-    "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html",
-    "test": "npm test",
-    "predeply": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "test": "echo \"Error: no test specified\" && exit 1",
   },
   "author": "",
   "license": "ISC",
