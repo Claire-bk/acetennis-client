@@ -2,10 +2,22 @@
   "name": "client",
   "version": "1.0.0",
   "description": "",
-  "main": "config.js",
+  "homepage": "https://claire-bk.github.io/acetennis-client",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html",
+    "test": "npm test",
+    "predeply": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^4.0.0",
+    "parcel": "^2.6.0"
+  },
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.6.0",
+    "@parcel/transformer-webmanifest": "^2.6.0"
+  }
 }
