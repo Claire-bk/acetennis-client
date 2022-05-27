@@ -404,6 +404,12 @@ function displayMatchDays(matches) {
     }
 }
 
+// help
+const tooltip = document.querySelector('.tooltip-icon');
+tooltip.addEventListener('click', () => {
+    window.location.href = "../public/component/help.html";
+})
+
 function getHeaders() {
     const token = localStorage.getItem('TOKEN')
     return {
