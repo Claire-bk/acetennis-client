@@ -1,31 +1,15 @@
-const TOKEN = 'token';
-const THEME = 'theme';
+const TOKEN = 'TOKEN';
 
 export default class TokenStorage {
   saveToken(token) {
-    sessionStorage.setItem(TOKEN, token);
+    localStorage.setItem(TOKEN, token);
   }
 
   getToken() {
-    return sessionStorage.getItem(TOKEN);
+    return localStorage.getItem(TOKEN);
   }
 
   clearToken() {
-    sessionStorage.clear(TOKEN);
+    localStorage.clear(TOKEN);
   }
 }
-
-export default class ThemeStorage {
-    saveTheme(theme) {
-      localStorage.setItem(THEME, theme);
-    }
-  
-    getTheme() {
-      return localStorage.getItem(THEME);
-    }
-  
-    clearTheme() {
-        localStorage.clear(THEME);
-    }
-  }
-  

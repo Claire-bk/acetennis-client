@@ -19,15 +19,15 @@ signupForm.addEventListener('focusout', (event) => {
 // go to home
 const navBarLogo = document.querySelector('.navBar__logo')
 navBarLogo.addEventListener('click', () => {
-    window.location.href = "../../src/index.html";
+    window.location.href = "../../index.html";
 });
 
 
 function checkValidation(event) {
     event.preventDefault();
 
-    const RegExp = /[a-zA-Z0-9]{4,12}$/;    // for username
-    const p_RegExp = /[a-zA-Z0-9]{6,12}$/;  // for password
+    const RegExp = /^[a-zA-Z0-9]{4,12}$/;    // for username
+    const p_RegExp = /^[a-zA-Z0-9]{6,12}$/;  // for password
     const e_RegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;  //  for email
     const n_RegExp =  /^[a-zA-Z ]{3,50}$/;
 

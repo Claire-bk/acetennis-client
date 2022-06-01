@@ -5,11 +5,16 @@ window.onload = () => {
 // go to home
 const navBarLogo = document.querySelector('.navBar__logo')
 navBarLogo.addEventListener('click', () => {
-    window.location.href = "../../src/index.html";
+    window.location.href = "../../index.html";
 });
 
 const submit = document.querySelector('.login-btn');
 submit.addEventListener('click', checkValidation);
+
+const signin = document.querySelector('.signin');
+signin.addEventListener('click', () => {
+    window.location.href = "./signup.html";
+})
 
 function checkValidation(event) {
     event.preventDefault();
@@ -68,7 +73,7 @@ function postLoginUser(username) {
         sessionStorage.setItem('username', username);
 
         hideSpinner();
-        window.location.href = "../../src/index.html";
+        window.location.href = "../../index.html";
     })
     .catch(error => {
         console.log(error);

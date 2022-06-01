@@ -1,4 +1,21 @@
 const baseURL = "https://acetennis.herokuapp.com";
+const TOKEN = 'TOKEN';
+
+class TokenStorage {
+  saveToken(token) {
+    localStorage.setItem(TOKEN, token);
+  }
+
+  getToken() {
+    return localStorage.getItem(TOKEN);
+  }
+
+  clearToken() {
+    localStorage.clear(TOKEN);
+  }
+}
+
+const tokenStorage = new TokenStorage();
 
 window.onload = () => {
     // let theme = document.getElementsByTagName("link")[0];
@@ -68,9 +85,9 @@ navBarMenu.addEventListener('click', (event) => {
 });
 
 // link to sign up page
-const signUp = document.querySelector('.icon__join');
-signUp.addEventListener('click', (event) => {
-    window.location = '../public/component/signup.html';
+const signIn = document.querySelector('.icon__join');
+signIn.addEventListener('click', (event) => {
+    window.location = './public/component/login.html';
 })
 
 // dark mode
@@ -270,7 +287,7 @@ joinMatchBtn.addEventListener('click', () => {
 
     // check if user log out
     if(!sessionStorage.getItem('isLogin') && !username) {
-        window.location.href = "../public/component/login.html";
+        window.location.href = "./public/component/login.html";
         return;
     }
 
@@ -290,8 +307,6 @@ joinMatchBtn.addEventListener('click', () => {
     })
     .then(res => res.json())
     .then(res => {
-        console.log("join match response ");
-        console.log(res);
         // save playerId 
         if(!res.id) {
             localStorage.setItem("PlayerId", `${res}`)
@@ -407,11 +422,11 @@ function displayMatchDays(matches) {
 // help
 const tooltip = document.querySelector('.tooltip-icon');
 tooltip.addEventListener('click', () => {
-    window.location.href = "../public/component/help.html";
+    window.location.href = "./public/component/help.html";
 })
 
 function getHeaders() {
-    const token = localStorage.getItem('TOKEN')
+    const token = tokenStorage.getToken();
     return {
         Authorization: `Bearer ${token}`,
     };
