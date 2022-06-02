@@ -67,7 +67,6 @@ function postLoginUser(username) {
     .then(res => res.json())
     .then(res => {
         // save jwt token
-        console.log(`token ${res.token}`)
         localStorage.setItem('TOKEN', res.token);
         sessionStorage.setItem('isLogin', 'true');
         sessionStorage.setItem('username', username);

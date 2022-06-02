@@ -247,9 +247,7 @@ function getJoinMatchInfo() {
 
     fetch(`${baseURL}/players?username=${username}&date=${date}`, {
         method: "GET",
-        headers: {
-            'content-Type': "application/json"
-        },
+        headers: getHeaders()
     })
     .then(res => {
         if(res.status === 400) {
@@ -262,13 +260,15 @@ function getJoinMatchInfo() {
         }
     })
     .then(res => {
+        const id = res;
         // user already joined a match game
-        if(res.id != 'undefined') {
-            localStorage.setItem("PlayerId", `${res.id}`);
+        if(id != undefined) {
+            localStorage.setItem("PlayerId", `${id}`);
             displayJoinMatch('cancel');
         }
     })
     .catch(error => {
+        console.log(error);
         localStorage.removeItem("PlayerId");
         displayJoinMatch('join');
     });
@@ -308,10 +308,13 @@ joinMatchBtn.addEventListener('click', () => {
     .then(res => res.json())
     .then(res => {
         // save playerId 
-        if(!res.id) {
+        if(res) {
             localStorage.setItem("PlayerId", `${res}`)
             // display join cancel button
             displayJoinMatch('cancel');
+        } else {
+            displayJoinMatch('join');
+            localStorage.removeItem('PlayerId');
         }
         // cancelMatchBtn.setAttribute("data-playerId", `${res.id}`);
         // console.log(cance.MatchBtn.getAttribute("data-playerId"));
@@ -334,13 +337,16 @@ function displayJoinMatch(status) {
 
 cancelMatchBtn.addEventListener('click', () => {
     // id from playersDB
-    const playerId = localStorage.getItem("PlayerId");
+    // const playerId = localStorage.getItem("PlayerId");
+    // console.log(`playerId`, playerId)
+    const date = localStorage.getItem("UpcomingMatch");
+    if(!date) {
+        return;
+    }
 
     fetch(`${baseURL}/players/${playerId}`, {
         method: "DELETE",
-        headers: {
-            'content-Type': "application/json" 
-        },
+        headers: getHeaders()
     })
     .then(res => {
         // display join match button
