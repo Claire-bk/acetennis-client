@@ -193,7 +193,7 @@ function fetchEventInfo(url) {
     fetch(url, {
         method: "GET",
         headers: {
-            'content-type': "application/json"
+            'Content-Type': "application/json"
         },
     })
     .then(res => res.json())
@@ -301,7 +301,7 @@ joinMatchBtn.addEventListener('click', () => {
     fetch(`${baseURL}/players`, {
         method: "POST",
         headers: {
-            'content-Type': "application/json" 
+            'Content-Type': "application/json" 
         },
         body: JSON.stringify({username: `${username}`, date: `${matchDate}`})
     })

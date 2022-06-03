@@ -43,3 +43,18 @@ Download [Github](https://github.com/Claire-bk/acetennis-admin.git)
 npm install
 npx parcel ./src/index.html
 ```
+
+### Database
+
+- MySQL
+
+#### Schemas
+
+```
+events
+logs
+matches
+players
+users
+venues
+```

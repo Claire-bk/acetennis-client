@@ -60,7 +60,7 @@ function postLoginUser(username) {
     fetch("http://localhost:8081/auth/login", {
         method: "POST",
         headers: {
-            'content-Type': "application/json"
+            'Content-Type': "application/json"
         },
         body: formDataJson
     })

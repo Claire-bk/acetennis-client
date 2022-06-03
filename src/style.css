@@ -99,8 +99,9 @@ h3 {
   background-color: var(--color-yellow);
   background: linear-gradient(
     106deg,
-    rgba(248, 188, 36, 1) 59%,
-    rgba(221, 116, 10, 1) 100%
+    rgba(221, 116, 10, 1) 59%,
+    rgba(248, 188, 36, 1) 100%
+    
   );
   align-items: flex-start;
   color: var(--color-text);
@@ -169,17 +170,12 @@ h3 {
 
 /* tooltip */
 i.tooltip-icon {
-  position: absolute;
-  display: none;
   font-size: 18px;
-  color: #bdbdbd;
-  top: -15px;
-  right: -3px;
-  z-index: 1;
+  color: var(--color-mint);
 }
 
-.navBar__icon:hover .tooltip-icon {
-  display: inline;
+.tooltip-icon:hover {
+  cursor: pointer;
 }
 
 .fa-bars {
@@ -189,10 +185,9 @@ i.tooltip-icon {
 /* social media and join button */
 #icon {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  /* padding: 3px 5px; */
   padding-top: 80px;
 }
 
@@ -217,9 +212,18 @@ i.tooltip-icon {
   margin-left: 0;
 }
 
-.iconNjoin {
+.icon-left {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 5px;
+}
+
+.icon-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding: 3px 5px;
 }
