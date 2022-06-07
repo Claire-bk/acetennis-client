@@ -1,3 +1,5 @@
+const baseURL = "https://acetennis.herokuapp.com";
+
 window.onload = () => {
     document.querySelector('.spinner-border').style.display = 'none';
 }
@@ -86,7 +88,7 @@ function postCreateUser() {
     const formDataJson = JSON.stringify(Object.fromEntries(new FormData(createUserForm)));
 
     // Post the json to the backend
-    fetch("http://localhost:8081/auth/signup", {
+    fetch(`${baseURL}/auth/signup`, {
         method: "POST",
         headers: {
             'content-Type': "application/json"

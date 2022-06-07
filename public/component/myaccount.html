@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../src/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>My Account</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navBar">
+        <div class="navBar__logo">
+            <span class="material-icons">sports_tennis</span>
+            <a href="#">AceTennis</a>
+        </div>
+        <div class="navBar__menu">
+            <ul>
+                <li class="navBar__menu__item" data-link="#icon">Home</li>
+                <li class="navBar__menu__item" data-link="#matches">Matches</li>
+                <li class="navBar__menu__item" data-link="#gallery">Gallery</li>
+                <li class="navBar__menu__item" data-link="#contact">Contact</li>
+                <li class="navBar__menu__item" data-link="#account">My Account</li>
+            </ul>
+        </div>        
+        <button class="navBar__icon">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+    <section class="edit-profile">
+        <form action="" class="account__form" novalidate autocomplete="off">
+            <h1>Edit Profile</h1>
+            <img src="../img/logo.png" alt="photo">
+            <div>
+                <input id="username" type="text" placeholder="Username" name="username" readonly />
+                <input id="name" type="text" placeholder="Full name" name="name" required/ minlength="3" maxlength="50"/ >
+                <p class="fullnameErr">Full name must be 3-50 characters in length.</p>
+                <input id="email" type="email" placeholder="Email" name="email" required maxlength="100" />
+                <p class="emailErr">Enter valid email address</p>
+                <div class="level">
+                    <p>Select your level</p>
+                    <input type="radio" id="high" name="level" value="H" checked>
+                    <label for="high">High</label>
+                    <input type="radio" id="middle" name="level" value="M" checked>
+                    <label for="middle">Middle</label>
+                    <input type="radio" id="low" name="level" value="L" checked>
+                    <label for="low">Low</label>
+                </div>
+                <button type="submit" class="register-btn">Save</button>
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-danger" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <!-- footer -->
+    <footer id="contact">
+        <div class="footer_info">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>149 Tennis st. Brisbane, QLD</span>
+        </div>
+        <div class="footer_info">
+            <i class="fa-solid fa-square-phone"></i>
+            <span>07)1234 5678</span>
+        </div>
+        <div class="footer_info">
+            <i class="fa-solid fa-envelope"></i>
+            <span>admin@acetennis.com.au</span>
+        </div>
+    </footer>
+    <script src="../../src/service/account.js" defer></script>
+    <script src="https://kit.fontawesome.com/8ce001a4b4.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,600&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+</body>
+</html>

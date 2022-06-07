@@ -1,7 +1,8 @@
+const baseURL = "https://acetennis.herokuapp.com";
+
 window.onload = () => {
     document.querySelector('.spinner-border').style.display = 'none';
 }
-
 // go to home
 const navBarLogo = document.querySelector('.navBar__logo')
 navBarLogo.addEventListener('click', () => {
@@ -57,7 +58,7 @@ function postLoginUser(username) {
     console.log(`formdate ${formDataJson}`)
 
     // Post the json to the backend
-    fetch("http://localhost:8081/auth/login", {
+    fetch(`${baseURL}/auth/login`, {
         method: "POST",
         headers: {
             'Content-Type': "application/json"

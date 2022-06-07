@@ -79,10 +79,22 @@ navBarMenu.addEventListener('click', (event) => {
         return;
     }
 
+    if(link == '#account') {
+        window.location.href = './public/component/myaccount.html';
+        return;
+    }
+
     const element = document.querySelector(link);
     element.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
     navBarMenu.classList.toggle('open');
 });
+
+document.body.addEventListener('click', (event) => {
+    if(event.target.className != 'fa-solid fa-bars' && navBarMenu.className == 'navBar__menu open') {
+        // console.log(`oopen`)
+        navBarMenu.classList.toggle('open');
+    }
+})
 
 // link to sign up page
 const signIn = document.querySelector('.icon__join');
@@ -301,7 +313,8 @@ joinMatchBtn.addEventListener('click', () => {
     fetch(`${baseURL}/players`, {
         method: "POST",
         headers: {
-            'Content-Type': "application/json" 
+            'Content-Type': "application/json",
+            Authorization: `Bearer ${tokenStorage.getToken()}`
         },
         body: JSON.stringify({username: `${username}`, date: `${matchDate}`})
     })
@@ -344,7 +357,7 @@ cancelMatchBtn.addEventListener('click', () => {
         return;
     }
 
-    fetch(`${baseURL}/players/${playerId}`, {
+    fetch(`${baseURL}/players?date=${date}`, {
         method: "DELETE",
         headers: getHeaders()
     })
@@ -399,9 +412,9 @@ function findUpcomingDate(matches) {
         const timeDiff = matchDate - today;
         
         if (timeDiff > 1) {
-            const hours = Math.floor(timeDiff / 1000 / 60 / 60);
+            const min = Math.floor(timeDiff / 1000 / 60 );
 
-            if (hours > 1 && hours < 168) {
+            if (min > 60) {
                 return matchDate;
             }
         }
