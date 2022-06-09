@@ -105,7 +105,7 @@ function postCreateUser() {
         // window.location.href = "../../src/index.html";
     })
     .catch(error => {
-        console.log(error);
-        console.log("Create user request failed");
+        // console.log(error);
+        // console.log("Create user request failed");
     });
 }

@@ -55,7 +55,6 @@ function postLoginUser(username) {
 
     // Convert the form fields into JSON
     const formDataJson = JSON.stringify(Object.fromEntries(new FormData(loginForm)));
-    console.log(`formdate ${formDataJson}`)
 
     // Post the json to the backend
     fetch(`${baseURL}/auth/login`, {

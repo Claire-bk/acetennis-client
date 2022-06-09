@@ -106,7 +106,6 @@ signIn.addEventListener('click', (event) => {
 const themeToggle = document.querySelector('#darkmode');
 themeToggle.addEventListener('change', (event) => {
     let checked = event.target.checked;
-    console.log("darkmode ${checked")
 
     if(checked) {
         localStorage.setItem("DarkTheme", "true");
@@ -184,7 +183,7 @@ function fetchMatchResult(url) {
         displayMatchResult(res);
     })
     .catch(error => {
-        console.log(error);
+        // console.log(error);
     });
 }
 
@@ -210,10 +209,10 @@ function fetchEventInfo(url) {
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res);
+        // console.log(res);
     })
     .catch(error => {
-        console.log(error);
+        // console.log(error);
     });
 }
 
@@ -235,8 +234,8 @@ function displayEvents() {
         updateJoinMatchText(res);
     })
     .catch(error => {
-        console.log(error);
-        console.log("Get events request failed");
+        // console.log(error);
+        // console.log("Get events request failed");
     });
 }
 
@@ -280,7 +279,7 @@ function getJoinMatchInfo() {
         }
     })
     .catch(error => {
-        console.log(error);
+        // console.log(error);
         localStorage.removeItem("PlayerId");
         displayJoinMatch('join');
     });
@@ -333,8 +332,8 @@ joinMatchBtn.addEventListener('click', () => {
         // console.log(cance.MatchBtn.getAttribute("data-playerId"));
     })
     .catch(error => {
-        console.log(error);
-        console.log("Fail to join match play");
+        // console.log(error);
+        // console.log("Fail to join match play");
     });
 })
 
@@ -367,8 +366,8 @@ cancelMatchBtn.addEventListener('click', () => {
         localStorage.removeItem('PlayerId');
     })
     .catch(error => {
-        console.log(error);
-        console.log("Fail to cancel match play");
+        // console.log(error);
+        // console.log("Fail to cancel match play");
     });
 })
 

@@ -30,7 +30,7 @@ window.onload = () => {
             }
         })
         .catch(error => {
-            console.log("Client error: " + error);
+            // console.log("Client error: " + error);
         })
 }
 
@@ -129,7 +129,7 @@ function postEditUser() {
         }
     })
     .catch(error => {
-        console.log(error);
-        console.log("Edit user request failed");
+        // console.log(error);
+        // console.log("Edit user request failed");
     });
 }
