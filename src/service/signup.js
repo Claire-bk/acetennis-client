@@ -95,14 +95,21 @@ function postCreateUser() {
         },
         body: formDataJson
     })
-    .then(res => res.json())
+    .then(res => {
+        if(res.status >= 200 || res.status < 300) {
+            return res.json();
+        } else {
+            throw new Error(res.json());
+        }
+    })
     .then(res => {
         // save jwt token
         localStorage.setItem('TOKEN', res.token);
         sessionStorage.setItem('isLogin', 'true');
+        sessionStorage.setItem('username', res.username);
         hideSpinner();
 
-        // window.location.href = "../../src/index.html";
+        window.location.href = "../../src/index.html";
     })
     .catch(error => {
         // console.log(error);
