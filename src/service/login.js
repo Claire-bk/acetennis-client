@@ -65,7 +65,13 @@ function postLoginUser(username) {
         },
         body: formDataJson
     })
-    .then(res => res.json())
+    .then(res => {
+        if(res.status == 200) {
+            return res.json();
+        } else {
+            throw new Error(res.json());
+        }
+    })
     .then(res => {
         // save jwt token
         localStorage.setItem('TOKEN', res.token);
@@ -76,8 +82,14 @@ function postLoginUser(username) {
         window.location.href = "../../index.html";
     })
     .catch(error => {
-        console.log(error);
-        console.log("Create user request failed");
+        hideSpinner();
+        const username = document.querySelector('#username');
+        username.value = "";
+
+        const password = document.querySelector('#password');
+        password.value ="";
+        // console.log(error);
+        // console.log("Login user request failed");
     });
 
 }

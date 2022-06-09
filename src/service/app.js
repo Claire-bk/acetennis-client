@@ -226,7 +226,7 @@ function displayEvents() {
     fetch(`${baseURL}/event?month=${currMonth+1}&year=${currYear}&date=`, {
         method: "GET",
         headers: {
-            'content-Type': "application/json"
+            'Content-Type': "application/json"
         },
     })
     .then(res => res.json())
